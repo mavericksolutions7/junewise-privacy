@@ -1,0 +1,1411 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Four Nights in Nashville</title>
+<meta name="description" content="Labor Day weekend in Nashville — load-in times, the routing, and where we're eating. Sam, Erin, Ben, E and Andrew, September 3–7, 2026.">
+<meta property="og:title" content="Four Nights in Nashville">
+<meta property="og:description" content="Labor Day weekend in Nashville — load-in times, the routing, and where we're eating.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#191510">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Karla:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%B8%3C/text%3E%3C/svg%3E">
+<style>
+/* ============================================================
+   FOUR NIGHTS IN NASHVILLE
+   Letterpress / Hatch Show Print broadside
+   ============================================================ */
+
+/* --- Tokens: light (poster stock) is the base --------------- */
+:root {
+  --ink:        #191510;
+  --ink-soft:   #4a4136;
+  --ink-faint:  #7d7263;
+  --stock:      #ede4d0;
+  --stock-2:    #e4d9c1;
+  --stock-3:    #d8cbae;
+  --rule:       #c3b79a;
+  --red:        #c43a2b;
+  --red-deep:   #9c2c20;
+  --teal:       #1f6f63;
+  --teal-deep:  #16544b;
+  --gold:       #b5811a;
+  --gold-mark:  rgba(224, 165, 38, .38);
+  --card:       #f4ecda;
+  --card-2:     #e9dfc7;
+  --shadow:     rgba(25, 21, 16, .13);
+  --focus:      #c43a2b;
+
+  --z-nav: 50;
+  --z-top: 90;
+
+  --measure: 66ch;
+  --pad: clamp(1.15rem, 4vw, 3.25rem);
+
+  --f-display: "Alfa Slab One", "Rockwell", Georgia, serif;
+  --f-cond: "Barlow Condensed", "Oswald", "Arial Narrow", system-ui, sans-serif;
+  --f-body: "Karla", ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  color-scheme: light;
+}
+
+/* --- Tokens: dark (ink) ------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink:        #f0e7d3;
+    --ink-soft:   #c4b8a0;
+    --ink-faint:  #8e836e;
+    --stock:      #14110d;
+    --stock-2:    #1c1813;
+    --stock-3:    #262019;
+    --rule:       #443b2e;
+    --red:        #e8614c;
+    --red-deep:   #f08670;
+    --teal:       #4bb8a3;
+    --teal-deep:  #6fd0bb;
+    --gold:       #e6b34a;
+    --gold-mark:  rgba(230, 179, 74, .26);
+    --card:       #1e1a14;
+    --card-2:     #262019;
+    --shadow:     rgba(0, 0, 0, .5);
+    --focus:      #e8614c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --ink:        #f0e7d3;
+  --ink-soft:   #c4b8a0;
+  --ink-faint:  #8e836e;
+  --stock:      #14110d;
+  --stock-2:    #1c1813;
+  --stock-3:    #262019;
+  --rule:       #443b2e;
+  --red:        #e8614c;
+  --red-deep:   #f08670;
+  --teal:       #4bb8a3;
+  --teal-deep:  #6fd0bb;
+  --gold:       #e6b34a;
+  --gold-mark:  rgba(230, 179, 74, .26);
+  --card:       #1e1a14;
+  --card-2:     #262019;
+  --shadow:     rgba(0, 0, 0, .5);
+  --focus:      #e8614c;
+  color-scheme: dark;
+}
+
+/* --- Reset-ish ---------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--stock);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: clamp(1rem, .96rem + .18vw, 1.075rem);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+
+:where(a, button, input, [tabindex]):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* --- Shared bits -------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: 1080px;
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+.skip {
+  position: absolute; left: -9999px; top: 0;
+  background: var(--red); color: #fff; padding: .7rem 1.1rem;
+  font-family: var(--f-cond); text-transform: uppercase; letter-spacing: .06em;
+  z-index: var(--z-top); text-decoration: none;
+}
+.skip:focus { left: .5rem; top: .5rem; }
+
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.cond { font-family: var(--f-cond); text-transform: uppercase; letter-spacing: .045em; }
+
+h1, h2, h3, h4 { text-wrap: balance; margin: 0; }
+p { text-wrap: pretty; margin: 0; }
+
+/* Section heading — a letterpress rule with a slug on it */
+.sec-head {
+  display: flex; align-items: baseline; gap: .9rem;
+  border-bottom: 3px solid var(--ink);
+  padding-bottom: .5rem;
+  margin-bottom: 1.6rem;
+}
+.sec-head h2 {
+  font-family: var(--f-display);
+  font-size: clamp(1.5rem, 1.15rem + 1.8vw, 2.4rem);
+  line-height: .98;
+  letter-spacing: -.01em;
+}
+.sec-head .slug {
+  font-family: var(--f-mono); font-size: .72rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: .14em;
+  color: var(--ink-faint); margin-left: auto; white-space: nowrap;
+  padding-bottom: .18rem;
+}
+section { padding-block: clamp(2.75rem, 6vw, 4.75rem); }
+
+/* Status chips */
+.chip {
+  display: inline-flex; align-items: center; gap: .38rem;
+  font-family: var(--f-mono); font-size: .68rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: .1em;
+  padding: .22rem .5rem; border: 2px solid currentColor; white-space: nowrap;
+}
+.chip--locked { color: var(--teal); }
+.chip--open   { color: var(--gold); }
+.chip--work   { color: var(--red); }
+.chip .dot { width: .42rem; height: .42rem; background: currentColor; border-radius: 50%; flex: none; }
+
+mark.tbd {
+  background: var(--gold-mark);
+  color: inherit;
+  padding: 0 .18em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* ============================================================
+   POSTER HERO
+   ============================================================ */
+.poster {
+  position: relative;
+  min-height: 100svh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(3.5rem, 8vh, 5.5rem) var(--pad) clamp(2rem, 5vh, 3rem);
+  border-bottom: 6px double var(--ink);
+  overflow: hidden;
+  isolation: isolate;
+}
+/* paper grain */
+.poster::after {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  pointer-events: none; opacity: .28; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+:root[data-theme="dark"] .poster::after { mix-blend-mode: screen; opacity: .16; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .poster::after { mix-blend-mode: screen; opacity: .16; }
+}
+
+.poster__inner { width: 100%; max-width: 900px; margin-inline: auto; text-align: center; }
+
+.bill-line { display: block; line-height: .86; }
+.bill-rule {
+  height: 4px; background: var(--ink); margin-block: clamp(.6rem, 1.4vw, 1rem);
+}
+.bill-rule--thin { height: 2px; }
+
+.l-eyebrow {
+  font-family: var(--f-cond); font-weight: 600;
+  font-size: clamp(.72rem, .64rem + .42vw, 1.05rem);
+  letter-spacing: clamp(.16em, .06em + .5vw, .34em);
+  text-transform: uppercase;
+  color: var(--ink-soft); line-height: 1.35;
+  text-wrap: balance;
+  margin-bottom: clamp(.7rem, 2vw, 1.1rem);
+}
+.l-presents {
+  font-family: var(--f-cond); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(1.05rem, .8rem + 1.5vw, 2rem);
+  letter-spacing: .1em; color: var(--red);
+}
+.l-names {
+  font-family: var(--f-cond); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(1.15rem, .55rem + 2.6vw, 2.45rem);
+  letter-spacing: .015em;
+  word-spacing: .1em;
+  text-wrap: balance;
+}
+/* Separator travels with the name that follows it, so a wrapped line
+   never ends on a dangling interpunct. */
+.l-names .nm { white-space: nowrap; }
+.l-names .amp { color: var(--red); }
+
+/* The fat wood-type line, with an off-register second plate */
+.l-title {
+  position: relative;
+  font-family: var(--f-display);
+  font-size: clamp(1.9rem, .2rem + 8.2vw, 7.4rem);
+  line-height: .82;
+  letter-spacing: -.022em;
+  text-transform: uppercase;
+  margin-block: clamp(.35rem, 1.2vw, .6rem);
+}
+.l-title .plate {
+  display: block;
+  position: absolute; inset: 0;
+  color: var(--teal);
+  /* em-based so the misregistration scales with the type instead of
+     turning to mud at mobile sizes */
+  transform: translate3d(-.075em, .058em, 0);
+  opacity: .82;
+  z-index: -1;
+  transition: transform 620ms cubic-bezier(.2, .8, .25, 1);
+}
+.l-title .plate--b {
+  color: var(--red);
+  transform: translate3d(.068em, -.05em, 0);
+}
+/* Settles to a small permanent offset — the plates never fully register,
+   which is the whole charm of a two-colour letterpress pull. */
+.poster.in-register .l-title .plate { transform: translate3d(-.026em, .019em, 0); opacity: .9; }
+.poster.in-register .l-title .plate--b { transform: translate3d(.026em, -.019em, 0); }
+@media (prefers-reduced-motion: reduce) {
+  .l-title .plate { transition: none; transform: translate3d(-.026em, .019em, 0); opacity: .9; }
+  .l-title .plate--b { transform: translate3d(.026em, -.019em, 0); }
+}
+
+.l-sub {
+  font-family: var(--f-cond); font-weight: 600; text-transform: uppercase;
+  font-size: clamp(.8rem, .62rem + .8vw, 1.5rem);
+  letter-spacing: clamp(.1em, .04em + .3vw, .18em);
+  color: var(--ink-soft);
+}
+.l-venue {
+  font-family: var(--f-display);
+  font-size: clamp(1.15rem, .7rem + 2.1vw, 2.2rem);
+  line-height: 1; text-transform: uppercase; color: var(--red);
+  letter-spacing: -.01em;
+}
+.l-dates {
+  font-family: var(--f-cond); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(.92rem, .72rem + .95vw, 1.75rem);
+  letter-spacing: .05em;
+  text-wrap: balance;
+}
+
+/* Countdown */
+.countdown {
+  margin-top: clamp(1.4rem, 3.5vw, 2.2rem);
+  display: flex; justify-content: center; flex-wrap: wrap;
+  gap: clamp(.5rem, 2vw, 1.1rem);
+}
+.cd-unit {
+  min-width: 4.6rem;
+  border: 3px solid var(--ink);
+  background: var(--card);
+  padding: .45rem .55rem .4rem;
+  box-shadow: 4px 4px 0 var(--red);
+}
+.cd-num {
+  display: block; font-family: var(--f-mono); font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  font-size: clamp(1.35rem, 1rem + 1.5vw, 2rem); line-height: 1.05;
+}
+.cd-lab {
+  display: block; font-family: var(--f-cond); font-weight: 600;
+  font-size: .68rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.cd-done {
+  font-family: var(--f-display); font-size: clamp(1.2rem, 3vw, 1.9rem);
+  color: var(--red); text-transform: uppercase;
+}
+
+.poster__foot {
+  margin-top: clamp(1.6rem, 4vh, 2.6rem);
+  display: flex; justify-content: center; gap: .55rem; flex-wrap: wrap;
+}
+.btn {
+  font-family: var(--f-cond); font-weight: 700; text-transform: uppercase;
+  letter-spacing: .1em; font-size: .95rem;
+  padding: .6rem 1.15rem;
+  border: 3px solid var(--ink); background: var(--card); color: var(--ink);
+  text-decoration: none; cursor: pointer;
+  transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+  box-shadow: 3px 3px 0 var(--ink);
+}
+.btn:hover { transform: translate3d(-2px, -2px, 0); box-shadow: 5px 5px 0 var(--ink); }
+.btn:active { transform: translate3d(1px, 1px, 0); box-shadow: 2px 2px 0 var(--ink); }
+.btn--ink { background: var(--red); border-color: var(--red-deep); color: #fff5ea; box-shadow: 3px 3px 0 var(--ink); }
+.btn--ink:hover { box-shadow: 5px 5px 0 var(--ink); }
+@media (prefers-reduced-motion: reduce) { .btn, .btn:hover, .btn:active { transform: none; } }
+
+/* ============================================================
+   STICKY NAV
+   ============================================================ */
+.nav {
+  position: sticky; top: 0; z-index: var(--z-nav);
+  background: var(--stock);
+  border-bottom: 3px solid var(--ink);
+  box-shadow: 0 2px 0 var(--rule);
+}
+.nav__in {
+  display: flex; align-items: center; gap: .35rem;
+  overflow-x: auto; scrollbar-width: thin;
+  padding-block: .45rem;
+}
+.nav a, .theme-btn {
+  flex: none;
+  font-family: var(--f-cond); font-weight: 600; text-transform: uppercase;
+  letter-spacing: .08em; font-size: .88rem;
+  padding: .34rem .58rem; text-decoration: none; color: var(--ink-soft);
+  border: 2px solid transparent; background: none; cursor: pointer;
+}
+.nav a:hover, .theme-btn:hover { color: var(--ink); border-color: var(--rule); }
+.nav a.is-here { color: var(--red); border-color: var(--red); }
+.theme-btn { margin-left: auto; }
+
+/* ============================================================
+   THE BAND (people)
+   ============================================================ */
+.band-intro { max-width: var(--measure); margin-bottom: 1.6rem; color: var(--ink-soft); }
+
+.who-grid {
+  display: grid; gap: .85rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15.5rem), 1fr));
+}
+.who {
+  position: relative;
+  text-align: left;
+  border: 3px solid var(--ink);
+  background: var(--card);
+  padding: .9rem .95rem 1rem;
+  cursor: pointer;
+  font: inherit; color: inherit;
+  display: flex; flex-direction: column; gap: .42rem;
+  transition: transform 160ms ease-out, box-shadow 160ms ease-out;
+  box-shadow: 4px 4px 0 var(--rule);
+}
+.who:hover { transform: translate3d(-2px, -2px, 0); box-shadow: 6px 6px 0 var(--rule); }
+.who[aria-pressed="true"] { box-shadow: 6px 6px 0 var(--red); border-color: var(--red); }
+@media (prefers-reduced-motion: reduce) { .who, .who:hover { transform: none; } }
+
+.who__top { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.who__name {
+  font-family: var(--f-display); font-size: 1.5rem; line-height: 1;
+  text-transform: uppercase; letter-spacing: -.01em;
+}
+.who__from {
+  font-family: var(--f-mono); font-size: .7rem; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--ink-faint);
+}
+.who__when {
+  font-family: var(--f-mono); font-size: .82rem; font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.who__note { font-size: .87rem; color: var(--ink-soft); line-height: 1.45; }
+.who__pick {
+  margin-top: auto; padding-top: .3rem;
+  font-family: var(--f-cond); font-weight: 700; text-transform: uppercase;
+  font-size: .78rem; letter-spacing: .12em; color: var(--red);
+}
+.who[aria-pressed="true"] .who__pick::before { content: "▸ "; }
+.who[aria-pressed="false"] .who__pick { color: var(--ink-faint); }
+
+/* Personalised banner */
+.you-bar {
+  margin-top: 1.5rem;
+  border: 3px solid var(--red);
+  background: var(--card-2);
+  padding: .85rem 1rem;
+  display: flex; align-items: flex-start; gap: .8rem; flex-wrap: wrap;
+}
+.you-bar[hidden] { display: none; }
+.you-bar__tag {
+  font-family: var(--f-cond); font-weight: 700; text-transform: uppercase;
+  letter-spacing: .12em; font-size: .8rem; color: #fff5ea;
+  background: var(--red); padding: .22rem .5rem; flex: none;
+}
+.you-bar__txt { flex: 1 1 16rem; font-size: .95rem; }
+.you-bar__clear {
+  font-family: var(--f-mono); font-size: .74rem; letter-spacing: .06em;
+  background: none; border: 2px solid var(--rule); color: var(--ink-soft);
+  padding: .24rem .5rem; cursor: pointer; text-transform: uppercase;
+}
+.you-bar__clear:hover { border-color: var(--ink); color: var(--ink); }
+
+/* ============================================================
+   THE ROUTING (itinerary)
+   ============================================================ */
+.day { border-top: 3px solid var(--ink); padding-top: 1.1rem; margin-top: 2.4rem; }
+.day:first-of-type { margin-top: 0; }
+
+.day__head {
+  display: flex; align-items: baseline; gap: .75rem; flex-wrap: wrap;
+  margin-bottom: 1.1rem;
+}
+.day__num {
+  font-family: var(--f-mono); font-size: .72rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--ink-faint);
+}
+.day__date {
+  font-family: var(--f-display); font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.3rem);
+  line-height: 1; text-transform: uppercase; letter-spacing: -.015em;
+}
+.day__tag {
+  font-family: var(--f-cond); font-weight: 700; text-transform: uppercase;
+  letter-spacing: .12em; font-size: clamp(.85rem, .78rem + .3vw, 1rem);
+  color: var(--red);
+}
+.day__meta { margin-left: auto; }
+
+.blocks { display: flex; flex-direction: column; gap: .8rem; }
+
+.blk {
+  display: grid;
+  grid-template-columns: 7.4rem 1fr;
+  gap: 0 1.1rem;
+  border-left: 5px solid var(--rule);
+  padding: .75rem 0 .8rem 1.05rem;
+  transition: opacity 180ms ease-out, border-color 180ms ease-out;
+}
+.blk--key { border-left-color: var(--red); }
+.blk--work { border-left-color: var(--gold); }
+.blk--travel { border-left-color: var(--teal); }
+.blk.is-dim { opacity: .34; }
+.blk.is-dim .blk__body > *:not(.blk__title) { display: none; }
+
+.blk__time {
+  font-family: var(--f-mono); font-size: .82rem; font-weight: 500;
+  font-variant-numeric: tabular-nums; letter-spacing: -.01em;
+  color: var(--ink-soft); padding-top: .18rem;
+}
+.blk__body { display: flex; flex-direction: column; gap: .4rem; min-width: 0; }
+.blk__title {
+  font-family: var(--f-cond); font-weight: 700; text-transform: uppercase;
+  font-size: clamp(1.05rem, .95rem + .5vw, 1.3rem); letter-spacing: .02em;
+  line-height: 1.1;
+  display: flex; align-items: center; gap: .55rem; flex-wrap: wrap;
+}
+.blk__where {
+  font-family: var(--f-mono); font-size: .78rem; color: var(--ink-faint);
+  letter-spacing: .01em;
+}
+.blk__where a { color: var(--teal); text-underline-offset: 2px; }
+.blk__where a:hover { color: var(--red); }
+.blk__note { font-size: .93rem; color: var(--ink-soft); max-width: var(--measure); }
+.blk__who { display: flex; gap: .3rem; flex-wrap: wrap; }
+.tagp {
+  font-family: var(--f-mono); font-size: .66rem; font-weight: 500;
+  letter-spacing: .09em; text-transform: uppercase;
+  border: 1.5px solid var(--rule); color: var(--ink-faint);
+  padding: .1rem .34rem;
+}
+.tagp.is-you { border-color: var(--red); color: var(--red); font-weight: 600; }
+
+.blk__mine {
+  border-left: 3px solid var(--red);
+  background: var(--card-2);
+  padding: .5rem .7rem;
+  font-size: .9rem;
+  margin-top: .15rem;
+}
+.blk__mine strong { font-family: var(--f-cond); text-transform: uppercase; letter-spacing: .06em; }
+.blk__mine[hidden] { display: none; }
+
+@media (max-width: 34rem) {
+  .blk { grid-template-columns: 1fr; gap: .3rem; padding-left: .85rem; }
+  .blk__time { grid-row: auto; padding-top: 0; }
+}
+
+/* ============================================================
+   VENUES
+   ============================================================ */
+.venues { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); }
+.venue {
+  border: 3px solid var(--ink); background: var(--card);
+  padding: 1rem 1.05rem 1.1rem;
+  display: flex; flex-direction: column; gap: .5rem;
+  box-shadow: 5px 5px 0 var(--rule);
+}
+.venue__kind {
+  font-family: var(--f-mono); font-size: .67rem; font-weight: 600;
+  letter-spacing: .16em; text-transform: uppercase; color: var(--red);
+}
+.venue__name {
+  font-family: var(--f-display); font-size: 1.35rem; line-height: 1.05;
+  text-transform: uppercase; letter-spacing: -.01em;
+}
+.venue__addr { font-family: var(--f-mono); font-size: .76rem; color: var(--ink-faint); }
+.venue__body { font-size: .92rem; color: var(--ink-soft); }
+.venue__body strong { color: var(--ink); }
+.venue__links { margin-top: auto; padding-top: .5rem; display: flex; gap: .45rem; flex-wrap: wrap; }
+.tinylink {
+  font-family: var(--f-cond); font-weight: 600; text-transform: uppercase;
+  letter-spacing: .08em; font-size: .78rem;
+  border: 2px solid var(--rule); padding: .22rem .5rem; text-decoration: none;
+  color: var(--ink-soft);
+}
+.tinylink:hover { border-color: var(--red); color: var(--red); }
+
+/* ============================================================
+   RIDER / TIPS
+   ============================================================ */
+.rider { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
+.rider h3 {
+  font-family: var(--f-cond); font-weight: 700; text-transform: uppercase;
+  letter-spacing: .09em; font-size: 1.05rem;
+  border-bottom: 2px solid var(--ink); padding-bottom: .3rem; margin-bottom: .6rem;
+}
+.rider ul { margin: 0; padding-left: 1.05rem; display: flex; flex-direction: column; gap: .42rem; }
+.rider li { font-size: .93rem; color: var(--ink-soft); }
+.rider li strong { color: var(--ink); }
+
+/* ============================================================
+   CHECKLIST
+   ============================================================ */
+.packing { display: grid; gap: 1.1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+.packlist { border: 3px solid var(--ink); background: var(--card); padding: .95rem 1rem 1.05rem; }
+.packlist h3 {
+  font-family: var(--f-cond); font-weight: 700; text-transform: uppercase;
+  letter-spacing: .1em; font-size: 1rem; margin-bottom: .65rem;
+}
+.packlist ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: .1rem; }
+.packlist label {
+  display: flex; gap: .6rem; align-items: flex-start;
+  padding: .34rem .2rem; cursor: pointer; font-size: .93rem;
+  border-bottom: 1px dashed var(--rule);
+}
+.packlist li:last-child label { border-bottom: none; }
+.packlist input[type="checkbox"] {
+  appearance: none; -webkit-appearance: none;
+  width: 1.1rem; height: 1.1rem; flex: none; margin-top: .16rem;
+  border: 2.5px solid var(--ink); background: var(--stock); cursor: pointer;
+  display: grid; place-content: center;
+}
+.packlist input[type="checkbox"]::after {
+  content: ""; width: .55rem; height: .3rem;
+  border-left: 2.5px solid var(--red); border-bottom: 2.5px solid var(--red);
+  transform: rotate(-45deg) scale(0); transform-origin: center;
+  transition: transform 140ms ease-out;
+}
+.packlist input[type="checkbox"]:checked::after { transform: rotate(-45deg) scale(1); }
+.packlist input:checked + span { color: var(--ink-faint); text-decoration: line-through; }
+.pack-reset {
+  margin-top: .7rem; font-family: var(--f-mono); font-size: .72rem;
+  background: none; border: 2px solid var(--rule); color: var(--ink-faint);
+  padding: .24rem .5rem; cursor: pointer; text-transform: uppercase; letter-spacing: .07em;
+}
+.pack-reset:hover { border-color: var(--red); color: var(--red); }
+
+/* ============================================================
+   STILL TO LOCK
+   ============================================================ */
+.lock-note {
+  max-width: var(--measure); margin-bottom: 1.4rem; color: var(--ink-soft);
+}
+.locks { display: flex; flex-direction: column; gap: .55rem; }
+.lock {
+  display: grid; grid-template-columns: auto 1fr auto; gap: .3rem .8rem;
+  align-items: baseline;
+  border-bottom: 1px dashed var(--rule); padding-bottom: .55rem;
+}
+.lock__n {
+  font-family: var(--f-mono); font-size: .74rem; font-weight: 600;
+  color: var(--gold); font-variant-numeric: tabular-nums;
+}
+.lock__q { font-size: .96rem; }
+.lock__q small { display: block; color: var(--ink-faint); font-size: .84rem; margin-top: .12rem; }
+.lock__who {
+  font-family: var(--f-mono); font-size: .68rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-faint); white-space: nowrap;
+}
+@media (max-width: 34rem) {
+  .lock { grid-template-columns: auto 1fr; }
+  .lock__who { grid-column: 2; }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.foot {
+  border-top: 6px double var(--ink);
+  padding-block: clamp(2rem, 5vw, 3rem);
+  text-align: center;
+}
+.foot__mark {
+  font-family: var(--f-display); font-size: clamp(1.3rem, 1rem + 1.6vw, 2rem);
+  text-transform: uppercase; color: var(--red); line-height: 1;
+}
+.foot__sub {
+  font-family: var(--f-mono); font-size: .74rem; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--ink-faint); margin-top: .6rem;
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#routing">Skip to the itinerary</a>
+
+<!-- ══════════════════ POSTER ══════════════════ -->
+<header class="poster" id="top">
+  <div class="poster__inner">
+    <p class="l-eyebrow">Labor Day Weekend · Music City · MMXXVI</p>
+
+    <span class="bill-line l-presents">Will Mather Presents</span>
+    <div class="bill-rule bill-rule--thin"></div>
+    <span class="bill-line l-names"><span class="nm">Sam</span> <span class="nm"><span class="amp">·</span> Erin</span> <span class="nm"><span class="amp">·</span> Ben</span> <span class="nm"><span class="amp">·</span> E</span> <span class="nm"><span class="amp">·</span> Andrew</span></span>
+    <div class="bill-rule"></div>
+
+    <h1 class="l-title">
+      <span class="plate" aria-hidden="true">Four Nights<br>in Nashville</span>
+      <span class="plate plate--b" aria-hidden="true">Four Nights<br>in Nashville</span>
+      <span class="bill-line">Four Nights<br>in Nashville</span>
+    </h1>
+
+    <div class="bill-rule"></div>
+    <span class="bill-line l-sub">One Weekend Only &nbsp;·&nbsp; No Refunds</span>
+    <span class="bill-line l-venue">Germantown, Nashville TN</span>
+    <span class="bill-line l-dates">Thu Sept 3 — Mon Sept 7, 2026</span>
+
+    <div class="countdown" id="countdown" role="timer" aria-live="off" aria-label="Time until the weekend starts"></div>
+
+    <div class="poster__foot">
+      <a class="btn btn--ink" href="#routing">See the routing</a>
+      <a class="btn" href="#band">Who's coming</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════ NAV ══════════════════ -->
+<nav class="nav" aria-label="Sections">
+  <div class="wrap nav__in">
+    <a href="#band">The Band</a>
+    <a href="#routing">Routing</a>
+    <a href="#venues">Venues</a>
+    <a href="#rider">The Rider</a>
+    <a href="#packing">Packing</a>
+    <a href="#lock">Still To Lock</a>
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch between light and dark">◐ Theme</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ══════════════════ THE BAND ══════════════════ -->
+<section id="band">
+  <div class="sec-head">
+    <h2>The Band</h2>
+    <span class="slug">Load-in times</span>
+  </div>
+
+  <p class="band-intro">Five people, three arrival windows, two laptops that still have to work on Friday.
+    <strong>Tap your name</strong> and the whole weekend below rewrites itself around you — your load-in, what you're actually signed up for, and what you can skip.</p>
+
+  <div class="who-grid" id="whoGrid" role="group" aria-label="Pick who you are">
+
+    <button class="who" type="button" data-person="e" aria-pressed="false">
+      <span class="who__top"><span class="who__name">E</span><span class="who__from">Elizabeth</span></span>
+      <span class="who__when mono">THU · daytime — <mark class="tbd">time TBD</mark></span>
+      <span class="who__note">First one in. Gets the good room and the first say on dinner.</span>
+      <span class="who__pick">That's me</span>
+    </button>
+
+    <button class="who" type="button" data-person="sam" aria-pressed="false">
+      <span class="who__top"><span class="who__name">Sam</span><span class="who__from">← Chicago</span></span>
+      <span class="who__when mono">THU · 10:00 PM – 12:00 AM</span>
+      <span class="who__note">Working a <strong>half day Friday</strong>. Free by early afternoon.</span>
+      <span class="who__pick">That's me</span>
+    </button>
+
+    <button class="who" type="button" data-person="erin" aria-pressed="false">
+      <span class="who__top"><span class="who__name">Erin</span><span class="who__from">← Chicago</span></span>
+      <span class="who__when mono">THU · 10:00 PM – 12:00 AM</span>
+      <span class="who__note">Working a <strong>full day Friday</strong>. Desk, door, wifi — it's handled.</span>
+      <span class="who__pick">That's me</span>
+    </button>
+
+    <button class="who" type="button" data-person="ben" aria-pressed="false">
+      <span class="who__top"><span class="who__name">Ben</span><span class="who__from">← Chicago</span></span>
+      <span class="who__when mono">THU · 10:00 PM – 12:00 AM</span>
+      <span class="who__note">Zero obligations all weekend. The dangerous one.</span>
+      <span class="who__pick">That's me</span>
+    </button>
+
+    <button class="who" type="button" data-person="andrew" aria-pressed="false">
+      <span class="who__top"><span class="who__name">Andrew</span><span class="who__from">Fri drive-in</span></span>
+      <span class="who__when mono">FRI · ~12:00 PM at the house</span>
+      <span class="who__note">Rolls in at lunch, walks straight into a burger night.</span>
+      <span class="who__pick">That's me</span>
+    </button>
+
+    <button class="who" type="button" data-person="will" aria-pressed="false">
+      <span class="who__top"><span class="who__name">Will</span><span class="who__from">Host</span></span>
+      <span class="who__when mono">Already here. Obviously.</span>
+      <span class="who__note">Doors, keys, grill, and the 7:30 AM Sunday wake-up call.</span>
+      <span class="who__pick">That's me</span>
+    </button>
+
+  </div>
+
+  <div class="you-bar" id="youBar" hidden>
+    <span class="you-bar__tag" id="youTag">You</span>
+    <span class="you-bar__txt" id="youTxt"></span>
+    <button class="you-bar__clear" type="button" id="youClear">Show everyone</button>
+  </div>
+</section>
+
+<!-- ══════════════════ ROUTING ══════════════════ -->
+<section id="routing">
+  <div class="sec-head">
+    <h2>The Routing</h2>
+    <span class="slug">Sept 3 – 7 · all times CT</span>
+  </div>
+
+  <!-- ─── THURSDAY ─── -->
+  <article class="day">
+    <div class="day__head">
+      <span class="day__num">Night 01</span>
+      <h3 class="day__date">Thu · Sept 3</h3>
+      <span class="day__tag">Load-in</span>
+      <span class="day__meta chip chip--locked"><span class="dot"></span>Nothing planned</span>
+    </div>
+    <div class="blocks">
+
+      <div class="blk blk--travel" data-who="e">
+        <span class="blk__time">DAYTIME<br>TBD</span>
+        <div class="blk__body">
+          <h4 class="blk__title">E lands <span class="chip chip--open"><span class="dot"></span>Need time</span></h4>
+          <p class="blk__note">Elizabeth gets in during the day — <mark class="tbd">official arrival time still coming</mark>. Whoever's around does the airport run.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="will">Will</span></div>
+          <p class="blk__mine" data-for="e" hidden><strong>You:</strong> text the group your landing time and someone will be curbside. House keys and the room are ready.</p>
+        </div>
+      </div>
+
+      <div class="blk blk--travel" data-who="sam erin ben">
+        <span class="blk__time">10:00 PM<br>–12:00 AM</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Chicago crew lands</h4>
+          <p class="blk__where">Out of Chicago Thursday night — <mark class="tbd">confirm flying vs. driving</mark></p>
+          <p class="blk__note">Sam, Erin and Ben roll in late. Lights on, fridge stocked, nobody has to be quiet.</p>
+          <div class="blk__who"><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="erin">Erin</span><span class="tagp" data-p="ben">Ben</span></div>
+          <p class="blk__mine" data-for="sam" hidden><strong>You:</strong> you're working in the morning — get the laptop and charger out of the bag tonight, not at 8:55 AM.</p>
+          <p class="blk__mine" data-for="erin" hidden><strong>You:</strong> full day of work tomorrow. Pick your desk tonight so you're not hunting for an outlet at 9 AM.</p>
+          <p class="blk__mine" data-for="ben" hidden><strong>You:</strong> you have nothing on the books until Friday night. Sleep in shamelessly.</p>
+        </div>
+      </div>
+
+      <div class="blk" data-who="e sam erin ben will">
+        <span class="blk__time">LATE</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Kitchen's open, calendar isn't</h4>
+          <p class="blk__note">Officially nothing planned. If the Chicago flight food didn't cut it, most Germantown kitchens are closed by then — the honky-tonks downtown serve late, and there's always a run for something greasy. Optional, not scheduled.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="erin">Erin</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="will">Will</span></div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ─── FRIDAY ─── -->
+  <article class="day">
+    <div class="day__head">
+      <span class="day__num">Night 02</span>
+      <h3 class="day__date">Fri · Sept 4</h3>
+      <span class="day__tag">Work day, then burgers</span>
+      <span class="day__meta chip chip--work"><span class="dot"></span>2 people working</span>
+    </div>
+    <div class="blocks">
+
+      <div class="blk blk--work" data-who="erin">
+        <span class="blk__time">9:00 AM<br>–5:00 PM</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Erin — full work day</h4>
+          <p class="blk__note">Full day on the clock. Quiet room, door that shuts, good wifi. Everybody else keeps the volume down until five.</p>
+          <div class="blk__who"><span class="tagp" data-p="erin">Erin</span></div>
+          <p class="blk__mine" data-for="erin" hidden><strong>You:</strong> you get the room with the door. Nobody's scheduling anything that needs you before 5 PM — the day starts when you close the laptop.</p>
+        </div>
+      </div>
+
+      <div class="blk blk--work" data-who="sam">
+        <span class="blk__time">9:00 AM<br>–1:00 PM</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Sam — half work day</h4>
+          <p class="blk__note">Morning on the clock, then out. Free for the whole afternoon.</p>
+          <div class="blk__who"><span class="tagp" data-p="sam">Sam</span></div>
+          <p class="blk__mine" data-for="sam" hidden><strong>You:</strong> half day, so you're the first one loose. Prime window to grab Ben and E and go wander Germantown before the burger run.</p>
+        </div>
+      </div>
+
+      <div class="blk blk--travel" data-who="andrew">
+        <span class="blk__time">~12:00 PM</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Andrew arrives <span class="chip chip--open"><span class="dot"></span>Route TBD</span></h4>
+          <p class="blk__where">Leaves Friday morning · at the house around noon</p>
+          <p class="blk__note">Last one in, best-timed arrival — lands right as the afternoon opens up.</p>
+          <div class="blk__who"><span class="tagp" data-p="andrew">Andrew</span></div>
+          <p class="blk__mine" data-for="andrew" hidden><strong>You:</strong> you miss the work-morning entirely. Drop the bag, grab lunch, and you're on the same clock as everyone else by 1 PM.</p>
+        </div>
+      </div>
+
+      <div class="blk" data-who="e ben sam andrew will">
+        <span class="blk__time">AFTERNOON<br>open</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Free hours</h4>
+          <p class="blk__note">Nothing locked. Easy options within a walk or a short drive: the Farmers' Market and Bicentennial Capitol Mall on Germantown's south edge, the Tennessee State Museum (free), or just the Germantown block-crawl. Save your legs — Saturday is the big one.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="andrew">Andrew</span><span class="tagp" data-p="will">Will</span></div>
+        </div>
+      </div>
+
+      <div class="blk blk--key" data-who="e sam erin ben andrew will">
+        <span class="blk__time">EVENING<br>TBD</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Jack Brown's <span class="chip chip--open"><span class="dot"></span>Set a time</span></h4>
+          <p class="blk__where">1123 3rd Ave N, Germantown · <a href="https://maps.google.com/?q=Jack+Brown%27s+Beer+%26+Burger+Joint+1123+3rd+Ave+N+Nashville+TN+37208" target="_blank" rel="noopener">Map</a></p>
+          <p class="blk__note">Burgers, a serious beer list, zero ceremony. Walk-in only — no reservations — so it's first come, first served, and a group of six wants to be early or patient. Right in Germantown, so it works whether people drive or walk.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="erin">Erin</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="andrew">Andrew</span><span class="tagp" data-p="will">Will</span></div>
+          <p class="blk__mine" data-for="erin" hidden><strong>You:</strong> this is built around you — it's after 5, it's casual, and nobody's waiting on a reservation. Close the laptop and walk over.</p>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ─── SATURDAY ─── -->
+  <article class="day">
+    <div class="day__head">
+      <span class="day__num">Night 03</span>
+      <h3 class="day__date">Sat · Sept 5</h3>
+      <span class="day__tag">The big one</span>
+      <span class="day__meta chip chip--locked"><span class="dot"></span>Full day</span>
+    </div>
+    <div class="blocks">
+
+      <div class="blk" data-who="e sam erin ben andrew will">
+        <span class="blk__time">MORNING<br>~8:30 AM</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Walk &amp; coffee</h4>
+          <p class="blk__where">Germantown → Bicentennial Capitol Mall → Farmers' Market · <a href="https://maps.google.com/?q=Bicentennial+Capitol+Mall+State+Park+Nashville+TN" target="_blank" rel="noopener">Map</a></p>
+          <p class="blk__note">The natural loop: out through Germantown's short blocks, down to the Capitol Mall's Pathway of History with the skyline behind it, then the Farmers' Market on the way back. Coffee stops on the route — Elegy, Steadfast, Barista Parlor. Go early; by 10 AM in September it's already warm.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="erin">Erin</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="andrew">Andrew</span><span class="tagp" data-p="will">Will</span></div>
+        </div>
+      </div>
+
+      <div class="blk blk--key" data-who="e sam erin ben andrew will">
+        <span class="blk__time">12:00 PM<br>–1:30 PM</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Pickleball · 90 minutes <span class="chip chip--open"><span class="dot"></span>Court TBD</span></h4>
+          <p class="blk__where"><mark class="tbd">Venue not booked yet</mark> — see Venues below</p>
+          <p class="blk__note">Ninety minutes, however you want to split the teams. One honest warning: noon on a Nashville Saturday in September is the hottest hour of the day. Either book something indoor and air-conditioned, or push the start to 9–10 AM and stack it with the walk.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="erin">Erin</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="andrew">Andrew</span><span class="tagp" data-p="will">Will</span></div>
+        </div>
+      </div>
+
+      <div class="blk blk--key" data-who="e sam erin ben andrew will">
+        <span class="blk__time">5:00 PM</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Dinner — Pelato <span class="chip chip--open"><span class="dot"></span>Confirm res</span></h4>
+          <p class="blk__where">1300 3rd Ave N, Germantown · <a href="https://maps.google.com/?q=Pelato+1300+3rd+Ave+N+Nashville+TN+37208" target="_blank" rel="noopener">Map</a> · <a href="https://www.opentable.com/r/pelato-nashville" target="_blank" rel="noopener">OpenTable</a></p>
+          <p class="blk__note">Brooklyn-Italian, family-run, small shareable plates — order across the table and pass everything. From the same family behind Luogo in the Gulch, but looser and more fun. The 5 PM slot is the smart play: you eat well, you're out by 7, and the whole night is still ahead of you. Two blocks from Jack Brown's, so Germantown is officially the home field.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="erin">Erin</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="andrew">Andrew</span><span class="tagp" data-p="will">Will</span></div>
+        </div>
+      </div>
+
+      <div class="blk blk--key" data-who="e sam erin ben andrew will">
+        <span class="blk__time">7:00 PM<br>onward</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Hit the town</h4>
+          <p class="blk__note">Three tracks, pick as you go — full detail in <a href="#rider">The Rider</a>. Stay in Germantown and walk everything; drop down to Broadway for the full honky-tonk assault; or split the difference with Printers Alley. Getting out of dinner at 7 is exactly why the early reservation is worth it.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="erin">Erin</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="andrew">Andrew</span><span class="tagp" data-p="will">Will</span></div>
+          <p class="blk__mine" data-for="ben" hidden><strong>You:</strong> no work Friday, no golf Sunday morning. Statistically, you are closing this one out.</p>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ─── SUNDAY ─── -->
+  <article class="day">
+    <div class="day__head">
+      <span class="day__num">Night 04</span>
+      <h3 class="day__date">Sun · Sept 6</h3>
+      <span class="day__tag">Golf &amp; grill</span>
+      <span class="day__meta chip chip--work"><span class="dot"></span>7:30 AM roll-out</span>
+    </div>
+    <div class="blocks">
+
+      <div class="blk blk--key" data-who="will sam ben andrew">
+        <span class="blk__time">7:30 AM</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Wheels up for golf</h4>
+          <p class="blk__note">Hard out at 7:30 from the house. It's about a half hour down to Franklin, which leaves time to check in and hit a few balls before the tee time. Set alarms Saturday night — this is the one time all weekend that isn't flexible.</p>
+          <div class="blk__who"><span class="tagp" data-p="will">Will</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="andrew">Andrew</span></div>
+          <p class="blk__mine" data-for="sam" hidden><strong>You:</strong> 7:30 out the door. Whatever Saturday night becomes, this is the number to remember.</p>
+          <p class="blk__mine" data-for="ben" hidden><strong>You:</strong> 7:30 out the door — yes, even after Saturday night. Clubs by the door before you go to bed.</p>
+          <p class="blk__mine" data-for="andrew" hidden><strong>You:</strong> 7:30 out the door. If you're bringing your own clubs, they live by the door Saturday night.</p>
+          <p class="blk__mine" data-for="will" hidden><strong>You:</strong> you're the alarm clock. Coffee on at 7:00 or this doesn't happen.</p>
+        </div>
+      </div>
+
+      <div class="blk blk--key" data-who="will sam ben andrew">
+        <span class="blk__time">9:00 AM</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Tee time — Franklin <span class="chip chip--open"><span class="dot"></span>Confirm course</span></h4>
+          <p class="blk__where"><mark class="tbd">Believed to be Franklin Bridge Golf Club</mark> — 750 Riverview Dr, Franklin TN · <a href="https://maps.google.com/?q=Franklin+Bridge+Golf+Club+750+Riverview+Dr+Franklin+TN+37064" target="_blank" rel="noopener">Map</a></p>
+          <p class="blk__note">9:00 AM tee time for the foursome. Franklin Bridge is the area's public country club — water in play on most of the round, so bring more balls than you think. Eighteen holes puts you back at the house early afternoon.</p>
+          <div class="blk__who"><span class="tagp" data-p="will">Will</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="andrew">Andrew</span></div>
+        </div>
+      </div>
+
+      <div class="blk" data-who="e erin">
+        <span class="blk__time">MORNING<br>free</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Non-golf morning</h4>
+          <p class="blk__note">While the foursome is in Franklin: slow coffee, the Germantown brunch spots, or nothing at all. You've got until roughly 1:30 before anyone's back.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="erin">Erin</span></div>
+          <p class="blk__mine" data-for="erin" hidden><strong>You:</strong> you worked a full day Friday. This morning is yours and nobody gets to schedule it.</p>
+          <p class="blk__mine" data-for="e" hidden><strong>You:</strong> quiet house, no golfers, first pick of the coffee shop. Enjoy it.</p>
+        </div>
+      </div>
+
+      <div class="blk blk--key" data-who="e sam erin ben andrew will">
+        <span class="blk__time">EVENING</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Cookout at the house</h4>
+          <p class="blk__note">Grill's on, everybody's home, last real night together. Low effort by design after three days of going out — and the one meal that needs a shopping list instead of a reservation.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="erin">Erin</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="andrew">Andrew</span><span class="tagp" data-p="will">Will</span></div>
+          <p class="blk__mine" data-for="will" hidden><strong>You:</strong> grill, ice, and the shopping run. Do it Saturday morning during the walk, not Sunday after 18 holes.</p>
+        </div>
+      </div>
+
+      <div class="blk" data-who="e sam erin ben andrew will">
+        <span class="blk__time">AFTER<br>dinner</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Games at the house</h4>
+          <p class="blk__note">Cards, board games, whatever gets loud. Nobody has a tee time Monday — this is the one that goes late without consequences.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="erin">Erin</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="andrew">Andrew</span><span class="tagp" data-p="will">Will</span></div>
+        </div>
+      </div>
+
+    </div>
+  </article>
+
+  <!-- ─── MONDAY ─── -->
+  <article class="day">
+    <div class="day__head">
+      <span class="day__num">Load-out</span>
+      <h3 class="day__date">Mon · Sept 7</h3>
+      <span class="day__tag">Labor Day · everybody home</span>
+      <span class="day__meta chip chip--open"><span class="dot"></span>Times TBD</span>
+    </div>
+    <div class="blocks">
+      <div class="blk blk--travel" data-who="e sam erin ben andrew">
+        <span class="blk__time">TBD</span>
+        <div class="blk__body">
+          <h4 class="blk__title">Everybody heads out</h4>
+          <p class="blk__note">Departure times still to come. Post yours in the group chat so the airport runs can be stacked instead of done five separate times. Note that it's a holiday — traffic and the airport both run heavy on Labor Day Monday, so pad it.</p>
+          <div class="blk__who"><span class="tagp" data-p="e">E</span><span class="tagp" data-p="sam">Sam</span><span class="tagp" data-p="erin">Erin</span><span class="tagp" data-p="ben">Ben</span><span class="tagp" data-p="andrew">Andrew</span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<!-- ══════════════════ VENUES ══════════════════ -->
+<section id="venues">
+  <div class="sec-head">
+    <h2>The Venues</h2>
+    <span class="slug">Addresses &amp; intel</span>
+  </div>
+
+  <div class="venues">
+
+    <article class="venue">
+      <span class="venue__kind">Fri night · Burgers</span>
+      <h3 class="venue__name">Jack Brown's</h3>
+      <p class="venue__addr">1123 3rd Ave N · Germantown</p>
+      <p class="venue__body">Tiny, loud, excellent. Burgers on Texas toast and a beer list far better than the room suggests. <strong>No reservations, walk-in only</strong> — with six people, either get there early or plan to stand around a bit. Two blocks from Pelato.</p>
+      <div class="venue__links">
+        <a class="tinylink" href="https://maps.google.com/?q=Jack+Brown%27s+Beer+%26+Burger+Joint+1123+3rd+Ave+N+Nashville+TN+37208" target="_blank" rel="noopener">Map</a>
+        <a class="tinylink" href="https://www.jackbrownsjoint.com/locations/germantown-nashville/" target="_blank" rel="noopener">Site</a>
+      </div>
+    </article>
+
+    <article class="venue">
+      <span class="venue__kind">Sat night · Dinner</span>
+      <h3 class="venue__name">Pelato</h3>
+      <p class="venue__addr">1300 3rd Ave N · Germantown</p>
+      <p class="venue__body">Brooklyn-Italian small plates from the Scotto family, who also run Luogo in the Gulch. Croquettes, clams oreganata, chicken parm, house pastas — <strong>built for sharing</strong>, so order wide. The 5 PM table is the whole reason the night works.</p>
+      <div class="venue__links">
+        <a class="tinylink" href="https://maps.google.com/?q=Pelato+1300+3rd+Ave+N+Nashville+TN+37208" target="_blank" rel="noopener">Map</a>
+        <a class="tinylink" href="https://www.opentable.com/r/pelato-nashville" target="_blank" rel="noopener">Book</a>
+      </div>
+    </article>
+
+    <article class="venue">
+      <span class="venue__kind">Sun AM · Golf</span>
+      <h3 class="venue__name">Franklin Bridge</h3>
+      <p class="venue__addr">750 Riverview Dr · Franklin TN · (615) 794-9400</p>
+      <p class="venue__body"><mark class="tbd">Course name needs confirming.</mark> Franklin Bridge is the greater Nashville area's public country club — 18 holes with water in play on most of the card. Roughly 30 minutes from Germantown, which is what the 7:30 departure is built around.</p>
+      <div class="venue__links">
+        <a class="tinylink" href="https://maps.google.com/?q=Franklin+Bridge+Golf+Club+750+Riverview+Dr+Franklin+TN+37064" target="_blank" rel="noopener">Map</a>
+        <a class="tinylink" href="https://franklinbridgegolf.com/" target="_blank" rel="noopener">Site</a>
+      </div>
+    </article>
+
+    <article class="venue">
+      <span class="venue__kind">Sat noon · Pickleball</span>
+      <h3 class="venue__name">Centennial Sportsplex</h3>
+      <p class="venue__addr">Midtown · (615) 862-8490</p>
+      <p class="venue__body">Twelve courts lined for pickleball, reservable by the hour and cheap — roughly $5–10 per court per hour. <strong>Non-members can only book three days out</strong>, which means for Saturday the 5th you're calling on Wednesday the 2nd. Indoor, which matters at noon in September.</p>
+      <div class="venue__links">
+        <a class="tinylink" href="https://www.nashville.gov/departments/parks/centennial-sportsplex/pickleball" target="_blank" rel="noopener">Details</a>
+      </div>
+    </article>
+
+    <article class="venue">
+      <span class="venue__kind">Sat AM · The walk</span>
+      <h3 class="venue__name">Capitol Mall</h3>
+      <p class="venue__addr">Bicentennial Capitol Mall &amp; Farmers' Market</p>
+      <p class="venue__body">Nineteen acres on Germantown's south edge: the Pathway of History, the WWII memorial, a big open lawn with the Capitol on the hill above it. The Farmers' Market sits right there at 900 Rosa L. Parks Blvd — <strong>free parking</strong>, produce sheds, and food stalls in the Market House.</p>
+      <div class="venue__links">
+        <a class="tinylink" href="https://maps.google.com/?q=Nashville+Farmers+Market+900+Rosa+L+Parks+Blvd+Nashville+TN" target="_blank" rel="noopener">Map</a>
+      </div>
+    </article>
+
+    <article class="venue">
+      <span class="venue__kind">Sat night · After</span>
+      <h3 class="venue__name">Germantown</h3>
+      <p class="venue__addr">Walkable from the dinner table</p>
+      <p class="venue__body">The lowest-friction version of "hit the town": Mother's Ruin for cocktail-dive energy and a patio, Germantown Café's bar for something calmer. Short blocks, real sidewalks, nobody drives. Third-most-walkable neighborhood in the city.</p>
+      <div class="venue__links">
+        <a class="tinylink" href="https://maps.google.com/?q=Germantown+Nashville+TN" target="_blank" rel="noopener">Map</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ══════════════════ RIDER ══════════════════ -->
+<section id="rider">
+  <div class="sec-head">
+    <h2>The Rider</h2>
+    <span class="slug">Everything else you need</span>
+  </div>
+
+  <div class="rider">
+
+    <div>
+      <h3>Hitting the town, three ways</h3>
+      <ul>
+        <li><strong>Stay in Germantown.</strong> Walk out of Pelato and keep walking. Mother's Ruin, Germantown Café, the patios. Easiest night, no cars, everyone stays together.</li>
+        <li><strong>Go to Broadway.</strong> Ten minutes south. Multi-story honky-tonks, live bands on every floor, free cover. Loud, packed, and genuinely fun once — Labor Day weekend will be at full tilt.</li>
+        <li><strong>Split it.</strong> Printers Alley and the downtown rooftops sit between the two. More bar, less bachelorette party.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Dress code</h3>
+      <ul>
+        <li>Early September in Nashville is <strong>hot and humid</strong> — plan for upper 80s to low 90s and check the forecast the week of.</li>
+        <li>Nothing on this itinerary requires more than a nice shirt. Pelato is a nice-shirt place, not a jacket place.</li>
+        <li>Broadway is <strong>concrete and standing</strong>. Real shoes.</li>
+        <li>Golfers: check the course dress code — collared shirt is the safe assumption.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Getting around</h3>
+      <ul>
+        <li>Germantown to downtown is a <strong>5–10 minute ride</strong>. Rideshare is the move on Saturday night — downtown parking on a holiday weekend is a bad time.</li>
+        <li>Everything Friday and Saturday evening is walkable from the house. Only Sunday golf genuinely needs cars.</li>
+        <li>Nashville airport to Germantown is roughly 20 minutes without traffic.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Booking order of operations</h3>
+      <ul>
+        <li><strong>Now:</strong> confirm the Pelato reservation for 5 PM and the headcount.</li>
+        <li><strong>Now:</strong> confirm the Sunday tee time and the foursome.</li>
+        <li><strong>Wed Sept 2:</strong> book the pickleball court — that's the first day non-members can reserve for Saturday.</li>
+        <li><strong>Sat AM:</strong> cookout groceries and ice during the morning walk, so Sunday is hands-off.</li>
+        <li><strong>No booking needed:</strong> Jack Brown's. Just show up and be prepared to wait.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>House notes</h3>
+      <ul>
+        <li>Two people are working Friday. <strong>Erin gets the door that shuts</strong>; Sam needs a desk until 1.</li>
+        <li>Late arrivals Thursday: keys, lights, and the wifi password sorted before 10 PM.</li>
+        <li>Sunday is the only early alarm all weekend. It's a real one.</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Also happening in town</h3>
+      <ul>
+        <li>Labor Day weekend is one of the busiest of the Nashville year — <strong>book anything you actually care about</strong>.</li>
+        <li>Deep Tropics (music, art and style festival) and Nashville Dance Fest both run Sept 4–6 if anyone wants a wildcard afternoon.</li>
+        <li>The Tennessee State Museum by the Capitol Mall is free and air-conditioned, which is a better combination than it sounds.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ PACKING ══════════════════ -->
+<section id="packing">
+  <div class="sec-head">
+    <h2>Pack This</h2>
+    <span class="slug">Saves on your device</span>
+  </div>
+
+  <div class="packing">
+
+    <div class="packlist" data-list="all">
+      <h3>Everybody</h3>
+      <ul>
+        <li><label><input type="checkbox" data-k="a1"><span>Shoes you can stand in for four hours</span></label></li>
+        <li><label><input type="checkbox" data-k="a2"><span>Something for 90°F and humid</span></label></li>
+        <li><label><input type="checkbox" data-k="a3"><span>One nice-shirt outfit for Saturday</span></label></li>
+        <li><label><input type="checkbox" data-k="a4"><span>Sunglasses + hat</span></label></li>
+        <li><label><input type="checkbox" data-k="a5"><span>Portable charger for Saturday night</span></label></li>
+        <li><label><input type="checkbox" data-k="a6"><span>Your Monday departure time, sent to the group</span></label></li>
+      </ul>
+      <button class="pack-reset" type="button">Reset</button>
+    </div>
+
+    <div class="packlist" data-list="work">
+      <h3>If you're working Friday</h3>
+      <ul>
+        <li><label><input type="checkbox" data-k="w1"><span>Laptop + charger (out of the bag Thursday night)</span></label></li>
+        <li><label><input type="checkbox" data-k="w2"><span>Headphones</span></label></li>
+        <li><label><input type="checkbox" data-k="w3"><span>Hotspot, in case the wifi has opinions</span></label></li>
+        <li><label><input type="checkbox" data-k="w4"><span>Calendar blocked so nothing runs past 5</span></label></li>
+      </ul>
+      <button class="pack-reset" type="button">Reset</button>
+    </div>
+
+    <div class="packlist" data-list="sport">
+      <h3>Pickleball &amp; golf</h3>
+      <ul>
+        <li><label><input type="checkbox" data-k="s1"><span>Court shoes (not running shoes)</span></label></li>
+        <li><label><input type="checkbox" data-k="s2"><span>Paddle, if you're particular about yours</span></label></li>
+        <li><label><input type="checkbox" data-k="s3"><span>Golf clubs, or a rental sorted in advance</span></label></li>
+        <li><label><input type="checkbox" data-k="s4"><span>Collared shirt for the course</span></label></li>
+        <li><label><input type="checkbox" data-k="s5"><span>More golf balls than you think — water everywhere</span></label></li>
+        <li><label><input type="checkbox" data-k="s6"><span>Sunscreen. Seriously.</span></label></li>
+      </ul>
+      <button class="pack-reset" type="button">Reset</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════ STILL TO LOCK ══════════════════ -->
+<section id="lock">
+  <div class="sec-head">
+    <h2>Still To Lock</h2>
+    <span class="slug">Open items</span>
+  </div>
+
+  <p class="lock-note">Everything above is real except these. Each one is a single answer away from being locked — anything highlighted <mark class="tbd">like this</mark> on the page is waiting on one of them.</p>
+
+  <div class="locks">
+    <div class="lock"><span class="lock__n">01</span><span class="lock__q">What time does E actually land Thursday?<small>The only arrival on the board without a window.</small></span><span class="lock__who">E</span></div>
+    <div class="lock"><span class="lock__n">02</span><span class="lock__q">Chicago crew — flying or driving?<small>10 PM–midnight reads like a flight. If it's the drive, that's a 2:30 PM departure, not an evening one.</small></span><span class="lock__who">Sam · Erin · Ben</span></div>
+    <div class="lock"><span class="lock__n">03</span><span class="lock__q">Where's Andrew coming from, and is he staying at the house?<small>Changes whether noon is realistic and how many beds are in play.</small></span><span class="lock__who">Andrew</span></div>
+    <div class="lock"><span class="lock__n">04</span><span class="lock__q">Where exactly is "the place"?<small>Germantown is the assumption — both restaurants and the Saturday walk are there. The address makes every map link on this page work properly.</small></span><span class="lock__who">Will</span></div>
+    <div class="lock"><span class="lock__n">05</span><span class="lock__q">Which course is the Sunday tee time at?<small>Franklin Bridge is the assumption. And who's in the foursome — Will, Sam, Ben, Andrew?</small></span><span class="lock__who">Will</span></div>
+    <div class="lock"><span class="lock__n">06</span><span class="lock__q">Where are we playing pickleball, and is it booked?<small>If it's Centennial Sportsplex, the booking window opens Wed Sept 2.</small></span><span class="lock__who">Will</span></div>
+    <div class="lock"><span class="lock__n">07</span><span class="lock__q">What time Friday for Jack Brown's?<small>No reservation to make — but six people need a meeting time.</small></span><span class="lock__who">Everyone</span></div>
+    <div class="lock"><span class="lock__n">08</span><span class="lock__q">Is the Pelato table actually booked for 5 PM, and for how many?<small>Six is the assumption.</small></span><span class="lock__who">Will</span></div>
+    <div class="lock"><span class="lock__n">09</span><span class="lock__q">Any dietary restrictions or allergies?<small>Matters for Pelato and for the Sunday cookout list.</small></span><span class="lock__who">Everyone</span></div>
+    <div class="lock"><span class="lock__n">10</span><span class="lock__q">Monday departure times?<small>So the airport runs can be combined instead of run five separate times.</small></span><span class="lock__who">Everyone</span></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <p class="foot__mark">Four Nights in Nashville</p>
+  <p class="foot__sub">Sept 3–7, 2026 · Germantown · Bring a hat</p>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- safe storage ---------- */
+  function get(k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } }
+  function set(k, v) { try { window.localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
+  function del(k) { try { window.localStorage.removeItem(k); } catch (e) {} }
+
+  /* ---------- theme ---------- */
+  var root = document.documentElement;
+  var saved = get("fnn:theme");
+  if (saved === "light" || saved === "dark") root.setAttribute("data-theme", saved);
+
+  var themeBtn = document.getElementById("themeBtn");
+  themeBtn.addEventListener("click", function () {
+    var current = root.getAttribute("data-theme");
+    if (!current) {
+      current = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    var next = current === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
+    set("fnn:theme", next);
+  });
+
+  /* ---------- ink registration ---------- */
+  var poster = document.querySelector(".poster");
+  if (reduce) {
+    poster.classList.add("in-register");
+  } else {
+    window.setTimeout(function () { poster.classList.add("in-register"); }, 420);
+  }
+
+  /* ---------- countdown ---------- */
+  // Doors: Thursday 3 September 2026, 00:00 Central (UTC-5, CDT).
+  var TARGET = Date.parse("2026-09-03T00:00:00-05:00");
+  var cdEl = document.getElementById("countdown");
+
+  function unit(n, label) {
+    return '<span class="cd-unit"><span class="cd-num">' + n +
+           '</span><span class="cd-lab">' + label + "</span></span>";
+  }
+
+  function tick() {
+    var diff = TARGET - Date.now();
+    if (diff <= 0) {
+      cdEl.innerHTML = '<span class="cd-done">The weekend is on</span>';
+      return false;
+    }
+    var s = Math.floor(diff / 1000);
+    var d = Math.floor(s / 86400);
+    var h = Math.floor((s % 86400) / 3600);
+    var m = Math.floor((s % 3600) / 60);
+    var sec = s % 60;
+    cdEl.innerHTML = unit(d, d === 1 ? "Day" : "Days") +
+                     unit(String(h).padStart(2, "0"), "Hrs") +
+                     unit(String(m).padStart(2, "0"), "Min") +
+                     unit(String(sec).padStart(2, "0"), "Sec");
+    return true;
+  }
+
+  if (tick()) {
+    var timer = window.setInterval(function () {
+      if (!tick()) window.clearInterval(timer);
+    }, 1000);
+  }
+
+  /* ---------- persona filter ---------- */
+  var PEOPLE = {
+    e:      { name: "E",      line: "You're the first one here Thursday — send the group your landing time and someone will grab you. Nothing else on your plate until Friday night." },
+    sam:    { name: "Sam",    line: "Half day Friday, then you're free. Sunday is the 7:30 AM golf run — that's your only hard time all weekend." },
+    erin:   { name: "Erin",   line: "Full day Friday, so the weekend really starts at 5 PM with burgers. You get the room with the door, and Sunday morning is entirely yours." },
+    ben:    { name: "Ben",    line: "Nothing on your calendar until Friday night. Golf Sunday at 7:30 AM is the only thing standing between you and a perfect record." },
+    andrew: { name: "Andrew", line: "You land at noon Friday and go straight into burger night. Golf Sunday at 7:30 AM — clubs by the door Saturday." },
+    will:   { name: "Will",   line: "You're running this. Keys and wifi before 10 PM Thursday, groceries during the Saturday walk, coffee on at 7 AM Sunday." }
+  };
+
+  var grid = document.getElementById("whoGrid");
+  var buttons = Array.prototype.slice.call(grid.querySelectorAll(".who"));
+  var blocks = Array.prototype.slice.call(document.querySelectorAll(".blk"));
+  var mines = Array.prototype.slice.call(document.querySelectorAll(".blk__mine"));
+  var tags = Array.prototype.slice.call(document.querySelectorAll(".tagp"));
+  var youBar = document.getElementById("youBar");
+  var youTag = document.getElementById("youTag");
+  var youTxt = document.getElementById("youTxt");
+
+  function apply(person) {
+    buttons.forEach(function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.person === person));
+    });
+
+    blocks.forEach(function (blk) {
+      var who = (blk.dataset.who || "").split(/\s+/);
+      var relevant = !person || who.indexOf(person) !== -1;
+      blk.classList.toggle("is-dim", !relevant);
+    });
+
+    mines.forEach(function (m) {
+      m.hidden = !person || m.dataset.for !== person;
+    });
+
+    tags.forEach(function (t) {
+      t.classList.toggle("is-you", Boolean(person) && t.dataset.p === person);
+    });
+
+    if (person && PEOPLE[person]) {
+      youTag.textContent = PEOPLE[person].name;
+      youTxt.textContent = PEOPLE[person].line;
+      youBar.hidden = false;
+    } else {
+      youBar.hidden = true;
+    }
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener("click", function () {
+      var person = b.dataset.person;
+      var already = b.getAttribute("aria-pressed") === "true";
+      var next = already ? null : person;
+      if (next) { set("fnn:me", next); } else { del("fnn:me"); }
+      apply(next);
+    });
+  });
+
+  document.getElementById("youClear").addEventListener("click", function () {
+    del("fnn:me");
+    apply(null);
+    grid.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+  });
+
+  var me = get("fnn:me");
+  apply(me && PEOPLE[me] ? me : null);
+
+  /* ---------- packing checklists ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll(".packlist"), function (list) {
+    Array.prototype.forEach.call(list.querySelectorAll('input[type="checkbox"]'), function (box) {
+      var key = "fnn:pack:" + box.dataset.k;
+      if (get(key) === "1") box.checked = true;
+      box.addEventListener("change", function () {
+        if (box.checked) { set(key, "1"); } else { del(key); }
+      });
+    });
+    list.querySelector(".pack-reset").addEventListener("click", function () {
+      Array.prototype.forEach.call(list.querySelectorAll('input[type="checkbox"]'), function (box) {
+        box.checked = false;
+        del("fnn:pack:" + box.dataset.k);
+      });
+    });
+  });
+
+  /* ---------- nav highlight ---------- */
+  var links = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
+  var sections = links
+    .map(function (a) { return document.querySelector(a.getAttribute("href")); })
+    .filter(Boolean);
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (a) {
+          a.classList.toggle("is-here", a.getAttribute("href") === "#" + entry.target.id);
+        });
+      });
+    }, { rootMargin: "-25% 0px -65% 0px" });
+    sections.forEach(function (s) { io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
