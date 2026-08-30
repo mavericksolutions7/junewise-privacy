@@ -1,0 +1,6 @@
+*.md
+.Codex
+dist
+scripts
+node_modules
+.git
